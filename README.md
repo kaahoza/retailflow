@@ -41,7 +41,7 @@ scattered across controllers.
 ## Getting Started
 
 \`\`\`bash
-git clone https://github.com/<your-username>/retailflow.git
+git clone https://github.com/kaahoza/retailflow.git
 cd retailflow
 docker-compose up -d      # starts Postgres
 ./mvnw spring-boot:run
