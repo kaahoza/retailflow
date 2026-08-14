@@ -1,3 +1,22 @@
 spring:
   application:
     name: retailflow
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/retailflow_db
+    username: postgres
+    password: "Qhawe&Khanyisa_"
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
+
+
+  flyway:
+    enabled: true
+    validate-on-migrate: false
+    baseline-on-migrate: true
