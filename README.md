@@ -56,8 +56,8 @@ API docs available at `http://localhost:8080/swagger-ui.html` once running.
 ## Roadmap
 
 - [x] Project scaffold & CI-ready repo structure
-- [ ] Inventory module (Product, Category, Supplier, StockItem)
-- [ ] Sales module (Cart, Checkout, Order, Payment)
+- [X] Inventory module (Product, Category, Supplier, StockItem)
+- [X] Sales module (Cart, Checkout, Order, Payment)
 - [ ] Intelligence module (reporting & analytics endpoints)
 - [ ] Test coverage & Swagger documentation
 - [ ] Live deployment
