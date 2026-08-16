@@ -42,7 +42,6 @@ public class StockItem {
 
     public StockItem() {}
 
-    // --- Business logic lives here, not in the service ---
 
     /** Available stock = what's physically on hand minus what's already promised to other orders. */
     public int getAvailableQuantity() {
