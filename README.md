@@ -51,13 +51,15 @@ API docs available at `http://localhost:8080/swagger-ui.html` once running.
 
 ## Status
 
-🚧 In active development. Current phase: **Foundation & Inventory module**.
+✅ Core platform complete. All three pillars (Inventory, Sales, Intelligence)
+implemented and tested. Currently working on: test coverage, API documentation,
+and deployment.
 
 ## Roadmap
 
 - [x] Project scaffold & CI-ready repo structure
 - [X] Inventory module (Product, Category, Supplier, StockItem)
 - [X] Sales module (Cart, Checkout, Order, Payment)
-- [ ] Intelligence module (reporting & analytics endpoints)
+- [X] Intelligence module (reporting & analytics endpoints)
 - [ ] Test coverage & Swagger documentation
 - [ ] Live deployment
