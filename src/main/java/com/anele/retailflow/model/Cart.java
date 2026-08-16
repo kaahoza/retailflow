@@ -41,8 +41,7 @@ public class Cart {
      */
     public void addItem(Product product, int quantityToAdd, int availableStock) {
         CartItem existing = items.stream()
-                .filter(i -> i.getProduct().getId().equals(product.getId()))
-                .findFirst()
+                .filter(i -> java.util.Objects.equals(i.getProduct().getId(), product.getId()))                .findFirst()
                 .orElse(null);
 
         int currentQuantityInCart = existing != null ? existing.getQuantity() : 0;
