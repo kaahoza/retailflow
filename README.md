@@ -24,10 +24,11 @@ and low-stock alerts.
 
 ## Tech Stack
 
-- **Language / Framework:** Java 21, Spring Boot (Web, Data JPA, Security, Validation)
+- **Language / Framework:** Java 21, Spring Boot (Web, Data JPA, Validation)
 - **Database:** PostgreSQL, versioned with Flyway migrations
-- **API Docs:** springdoc-openapi (Swagger UI)
-- **Testing:** JUnit 5, Mockito, Testcontainers
+- **API Docs:** springdoc-openapi (Swagger UI) — live at `/swagger-ui.html`
+- **Testing:** JUnit 5, AssertJ — 17 passing unit tests covering core
+  domain logic (stock reservation, cart rules, order state transitions)
 - **Containerization:** Docker, docker-compose
 - **Deployment:** [to be added]
 
@@ -35,8 +36,13 @@ and low-stock alerts.
 
 Layered architecture: `Controller → Service → Repository`, with a
 clearly separated domain model (`Product`, `StockItem`, `Cart`, `Order`,
-`Payment`, etc.) so business rules live in the service layer, not
-scattered across controllers.
+`Payment`, etc.) so business rules live in the service layer and domain
+entities, not scattered across controllers. Key invariants — stock can
+never go negative, an order can't be paid twice, cart quantity can't
+exceed available stock — are enforced directly on the domain entities
+themselves (`Cart.addItem()`, `StockItem.reserve()`, `Order.markPaid()`),
+so they can't be bypassed by calling code. These rules are covered by
+unit tests in `src/test/java`.
 
 ## Getting Started
 
@@ -47,19 +53,27 @@ docker-compose up -d      # starts Postgres
 ./mvnw spring-boot:run
 \`\`\`
 
-API docs available at `http://localhost:8080/swagger-ui.html` once running.
+Interactive API docs available at `http://localhost:8080/swagger-ui.html`
+once running — every endpoint can be explored and tested directly from
+the browser.
+
+Run the test suite:
+
+\`\`\`bash
+./mvnw test
+\`\`\`
 
 ## Status
 
-✅ Core platform complete. All three pillars (Inventory, Sales, Intelligence)
-implemented and tested. Currently working on: test coverage, API documentation,
-and deployment.
+✅ Core platform complete, tested, and documented. All three pillars
+(Inventory, Sales, Intelligence) implemented, with 17 passing unit tests
+and interactive Swagger docs. Remaining: live deployment.
 
 ## Roadmap
 
 - [x] Project scaffold & CI-ready repo structure
-- [X] Inventory module (Product, Category, Supplier, StockItem)
-- [X] Sales module (Cart, Checkout, Order, Payment)
-- [X] Intelligence module (reporting & analytics endpoints)
-- [ ] Test coverage & Swagger documentation
+- [x] Inventory module (Product, Category, Supplier, StockItem)
+- [x] Sales module (Cart, Checkout, Order, Payment)
+- [x] Intelligence module (reporting & analytics endpoints)
+- [x] Test coverage & Swagger documentation
 - [ ] Live deployment
