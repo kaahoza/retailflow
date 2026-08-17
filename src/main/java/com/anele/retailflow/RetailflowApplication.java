@@ -8,6 +8,7 @@ public class
 RetailflowApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(RetailflowApplication.class, args);
 	}
 
