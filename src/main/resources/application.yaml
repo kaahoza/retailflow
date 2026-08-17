@@ -3,9 +3,9 @@ spring:
     name: retailflow
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/retailflow_db
-    username: postgres
-    password: "Qhawe&Khanyisa_"
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/retailflow_db}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:Qhawe&Khanyisa_}
 
   jpa:
     hibernate:
@@ -15,8 +15,7 @@ spring:
       hibernate:
         format-sql: true
 
-
   flyway:
     enabled: true
-    validate-on-migrate: false
-    baseline-on-migrate: true
+    validate-on-migrate: true
+    baseline-on-migrate: false
