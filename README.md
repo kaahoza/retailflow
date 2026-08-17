@@ -65,9 +65,10 @@ Run the test suite:
 
 ## Status
 
-✅ Core platform complete, tested, and documented. All three pillars
-(Inventory, Sales, Intelligence) implemented, with 17 passing unit tests
-and interactive Swagger docs. Remaining: live deployment.
+✅ Complete. All three pillars (Inventory, Sales, Intelligence) implemented,
+tested, documented, and deployed live.
+
+**🔗 Live demo:** https://retailflow-2.onrender.com/swagger-ui.html
 
 ## Roadmap
 
@@ -76,4 +77,4 @@ and interactive Swagger docs. Remaining: live deployment.
 - [x] Sales module (Cart, Checkout, Order, Payment)
 - [x] Intelligence module (reporting & analytics endpoints)
 - [x] Test coverage & Swagger documentation
-- [ ] Live deployment
+- [X] Live deployment
