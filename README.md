@@ -1,4 +1,5 @@
 # RetailFlow
+[![CI](https://github.com/kaahoza/retailflow/actions/workflows/ci.yml/badge.svg)](https://github.com/kaahoza/retailflow/actions/workflows/ci.yml)
 
 A backend platform for retail inventory management, sales processing, and
 business intelligence — built to reflect how real retail-tech systems
