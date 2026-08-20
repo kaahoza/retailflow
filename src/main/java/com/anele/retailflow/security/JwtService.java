@@ -3,6 +3,7 @@ package com.anele.retailflow.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
@@ -12,16 +13,14 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    // In production this would come from an environment variable — see note below.
-    private static final String SECRET_KEY =
-            "retailflow-super-secret-key-change-this-in-real-production-use-1234567890";
+    @Value("${jwt.secret}")
+    private String secretKey;
 
     private static final long EXPIRATION_MS = 1000 * 60 * 60 * 24; // 24 hours
 
     private SecretKey getSigningKey() {
-        return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
+        return Keys.hmacShaKeyFor(secretKey.getBytes());
     }
-
     public String generateToken(String email) {
         return Jwts.builder()
                 .subject(email)
