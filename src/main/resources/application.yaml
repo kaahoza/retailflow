@@ -20,5 +20,5 @@ spring:
     validate-on-migrate: true
     baseline-on-migrate: false
 
-  jwt:
-    secret: ${JWT_SECRET:retailflow-local-dev-secret-key-change-this-1234567890}
+jwt:
+  secret: ${JWT_SECRET:retailflow-local-dev-secret-key-change-this-1234567890}
